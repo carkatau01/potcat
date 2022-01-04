@@ -18,7 +18,7 @@ class CompanyFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'phone' => $this->faker->phoneNumber(),
             'website' => $this->faker->url(),
-            'region_id' => $this->faker->randomDigit(),
+            'region_id' => $this->faker->numberBetween(1,2),
         ];
     }
 }

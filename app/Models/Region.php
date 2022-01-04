@@ -4,19 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use \Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Company extends Model
+class Region extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
-        'phone',
-        'region_id',
     ];
 
-    public function region()
+    public function companies()
     {
-        return $this->hasOne(Region::class, 'id', 'region_id');
+        return $this->belongsTo(Company::class);
     }
 }
