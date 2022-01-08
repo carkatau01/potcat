@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Web\CompanyController;
+use App\Http\Controllers\ClickCounterController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/companies', [CompanyController::class, 'index'])->name('company.list');
+Route::get('/company/{id}', [CompanyController::class, 'show'])->name('company.show');
+
+Route::get('/tracking-redirect', [ClickCounterController::class, 'trackingRedirect'])->name('tracking.redirect');
